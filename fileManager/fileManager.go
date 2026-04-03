@@ -12,7 +12,7 @@ type FileManager struct {
 	OutputFilePath string
 }
 
-func (fm *FileManager) ReadLines() ([]string, error) {
+func (fm FileManager) ReadLines() ([]string, error) {
 	file, err := os.Open(fm.InputFilePath)
 
 	if err != nil {
@@ -36,7 +36,7 @@ func (fm *FileManager) ReadLines() ([]string, error) {
 	return lines, nil
 }
 
-func (fm *FileManager) WriteResult(data interface{}) error {
+func (fm FileManager) WriteResult(data interface{}) error {
 	file, err := os.Create(fm.OutputFilePath)
 	if err != nil {
 		return errors.New("error")
